@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtTexto"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="@dimen/margin"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/texto"/>
+
+        <EditText
+            android:id="@+id/edtTexto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enviar"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tamanho"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <SeekBar
+            android:id="@+id/skbTamanho"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="80"/>
+        <TextView
+            android:id="@+id/txtSp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/estilo"/>
+    <CheckBox
+        android:id="@+id/chkNegrito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/negrito"/>
+    <CheckBox
+        android:id="@+id/chkItalico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/italico"/>
+    <CheckBox
+        android:id="@+id/chkMaiuscula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/maiusculas"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cor"/>
+    <RadioGroup
+        android:id="@+id/rdgCor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/rdbVermelho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vermelho"/>
+        <RadioButton
+            android:id="@+id/rdbVerde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verde"/>
+        <RadioButton
+            android:id="@+id/rdbAzul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/azul"/>
+
+    </RadioGroup>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

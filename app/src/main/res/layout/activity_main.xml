@@ -52,12 +52,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="80"/>
+            android:max="80"
+            android:layout_margin="@dimen/margin"/>
         <TextView
             android:id="@+id/txtSp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sp"/>
+            android:layout_margin="@dimen/margin"/>
 
     </LinearLayout>
 
@@ -94,17 +95,21 @@
             android:id="@+id/rdbVermelho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/vermelho"/>
+            android:text="@string/vermelho"
+            android:textColor="@color/red"/>
         <RadioButton
             android:id="@+id/rdbVerde"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/verde"/>
+            android:text="@string/verde"
+            android:textColor="@color/green"/>
+
         <RadioButton
             android:id="@+id/rdbAzul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/azul"/>
+            android:text="@string/azul"
+            android:textColor="@color/blue"/>
 
     </RadioGroup>
 

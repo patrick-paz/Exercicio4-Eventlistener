@@ -3,6 +3,7 @@ package com.example.exercicio4;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
 
     private Button btnEnviar;
     private TextView txtTexto;
@@ -46,14 +47,37 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         rdbVerde = findViewById(R.id.rdbVerde);
         rdbAzul = findViewById(R.id.rdbAzul);
 
+        btnEnviar.setOnClickListener(this);
         skbTamanho.setOnSeekBarChangeListener(this);
 
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+
+        if(chkNegrito.isChecked() && chkItalico.isChecked()) {
+            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
+        }else if(chkNegrito.isChecked()) {
+            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        }else if(chkItalico.isChecked()){
+            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+        }
+
+        if(chkMaiuscula.isChecked()){
+            txtTexto.setAllCaps(true);
+        }
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         String c = Integer.toString(progress);
-
+        txtTamanho.setText(progress + "sp");
+        txtTexto.setTextSize(progress);
 ;
     }
 
@@ -64,6 +88,13 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        txtTexto.setText(edtTexto.getText());
 
     }
 }

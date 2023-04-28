@@ -16,8 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="@dimen/margin"
+            android:textAlignment="center"
             android:background="@color/black"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:gravity="center"/>
 
 
     </LinearLayout>

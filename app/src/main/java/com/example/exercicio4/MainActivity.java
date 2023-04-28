@@ -8,13 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
+import java.util.EventListener;
+
+public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
     private Button btnEnviar;
     private TextView txtTexto;
@@ -52,6 +55,14 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
 
 
 
+        chkMaiuscula.setOnCheckedChangeListener(this);
+        chkItalico.setOnCheckedChangeListener(this);
+        chkNegrito.setOnCheckedChangeListener(this);
+
+        rdgCor.setOnCheckedChangeListener(this);
+
+
+
     }
 
     @Override
@@ -59,18 +70,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         super.onResume();
 
 
-
-        if(chkNegrito.isChecked() && chkItalico.isChecked()) {
-            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
-        }else if(chkNegrito.isChecked()) {
-            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-        }else if(chkItalico.isChecked()){
-            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
-        }
-
-        if(chkMaiuscula.isChecked()){
-            txtTexto.setAllCaps(true);
-        }
     }
 
     @Override
@@ -96,5 +95,37 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
 
         txtTexto.setText(edtTexto.getText());
 
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(chkNegrito.isChecked() && chkItalico.isChecked()) {
+            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
+        }else if(chkNegrito.isChecked()) {
+            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        }else if(chkItalico.isChecked()){
+            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+        }else{
+            txtTexto.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        }
+
+        if(chkMaiuscula.isChecked()){
+            txtTexto.setAllCaps(true);
+        } else{
+            txtTexto.setAllCaps(false);
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if(rdbAzul.isChecked()){
+            txtTexto.setTextColor(rdbAzul.getTextColors());
+        } else if(rdbVermelho.isChecked()){
+            txtTexto.setTextColor(rdbVermelho.getTextColors());
+        } else if(rdbVerde.isChecked()){
+            txtTexto.setTextColor(rdbVerde.getTextColors());
+        } else {
+
+        }
     }
 }
